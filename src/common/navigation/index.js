@@ -20,18 +20,13 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
   },
-  grow: {
+  title: {
     flexGrow: 1,
+    textOverflow: 'unset',
   },
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
   },
   search: {
     position: 'relative',
@@ -41,12 +36,9 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+
       marginLeft: theme.spacing(3),
       width: 'auto',
-    },
   },
   searchIcon: {
     width: theme.spacing(9),
@@ -205,7 +197,6 @@ function ButtonAppBar({isAuthenticated}) {
               }}
             />
           </div>
-          <div className={classes.grow}/>
           <div className={classes.sectionDesktop}>
             <Link
               href='/pricing'
