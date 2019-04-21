@@ -37,7 +37,6 @@ const Categories = () => {
           color="inherit"
           noWrap
           key={section}
-          variant="h7"
           href="#"
           className={classes.toolbarLink}
         >
