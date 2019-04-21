@@ -897,6 +897,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.7.1.tgz#9833722341379fb7d67f06a4b00ab3c37913da53"
   integrity sha512-OYpa/Sg+2GDX+jibUfpZVn1YqSVRpYmTLF2eyAfrFTIJSbwyIrc+YscayoykvaOME/wV4BV0Sa0yqdMrgse6mA==
 
+"@kevinwang0316/react-materialui-pagination@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@kevinwang0316/react-materialui-pagination/-/react-materialui-pagination-1.1.4.tgz#e8e69c8042de93f27e1714a26feb58f1ebf267ac"
+  integrity sha512-SpFphVIqApomv2+6VIKlRR/0EBihzQMO1eoLLjiVQLwK0mm0KRj02OCW41Q6qHC/wOu6gWoakFXbR8L87TF4Xg==
+
 "@material-ui/core@^4.0.0-alpha.8":
   version "4.0.0-alpha.8"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.0.0-alpha.8.tgz#282176dfeb1be287afb847b25684f98a1b57fe62"

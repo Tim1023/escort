@@ -1,13 +1,14 @@
 import React from "react";
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Container from "@material-ui/core/Container";
+import Paper from '@material-ui/core/Paper';
+import Pagination from '@kevinwang0316/react-materialui-pagination';
 
 import Search from "../../../../common/search";
 import Categories from "../../../../common/categories";
 import ProfileCard from "../../../../common/profileCard";
-import Grid from '@material-ui/core/Grid';
-import Container from "@material-ui/core/Container";
-import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -42,6 +43,11 @@ const useStyles = makeStyles(theme => ({
     paper:{
       padding: theme.spacing(3),
     },
+    pagination:{
+      marginTop: theme.spacing(3),
+      display: 'flex',
+      justifyContent:'center',
+    }
   }
 ));
 
@@ -372,7 +378,11 @@ const normalEscorts = [
 
 const Page = () => {
   const classes = useStyles();
+  const [offset, setOffset] = React.useState(0);
 
+  function onPageChange(e) {
+    setOffset(e)
+  }
   return <div>
     <div className={classes.banner}>
       <Typography className={classes.title} variant="h3" color="inherit" noWrap>
@@ -421,10 +431,16 @@ const Page = () => {
             </Grid>
           ))}
         </Grid>
+        <div className={classes.pagination}>
+          <Pagination
+            offset={offset}
+            limit={32}
+            total={640}
+            onClick={onPageChange}
+          />
+        </div>
       </Paper>
     </Container>
-
-
   </div>
 }
 export default Page;
