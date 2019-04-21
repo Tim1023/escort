@@ -141,7 +141,7 @@ function ButtonAppBar({isAuthenticated}) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography className={classes.title} variant="h6" color="inherit" noWrap>
             Escort
