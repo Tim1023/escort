@@ -21,7 +21,18 @@ const useStyles = makeStyles(theme => ({
   },
   featured:{
     color: theme.palette.primary.contrastText,
+    fontWeight: 'bold',
   },
+  vip:{
+    backgroundColor: '#e79627',
+    color: 'black',
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    borderRadius: 2,
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  }
 }));
 
 function ImgMediaCard({escort}) {
@@ -39,6 +50,7 @@ function ImgMediaCard({escort}) {
         />
         <CardContent className={classes.content}>
           <Typography gutterBottom variant="body1" component="h2" className={isFeatured ? classes.featured : null}>
+            {isFeatured && <span className={classes.vip}>VIP</span>}
             {name}
           </Typography>
           <div className={classes.contentLine}>

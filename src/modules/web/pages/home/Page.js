@@ -60,7 +60,7 @@ const featuredEscorts = [
     age: 23,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: true,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 2,
@@ -70,7 +70,7 @@ const featuredEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201904/image-42261.jpg',
     isFeatured: true,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 3,
@@ -80,7 +80,7 @@ const featuredEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: true,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 4,
@@ -90,7 +90,7 @@ const featuredEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/wechat-escorts/201903/image-37466.jpeg',
     isFeatured: true,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 5,
@@ -100,7 +100,7 @@ const featuredEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: true,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 6,
@@ -110,7 +110,7 @@ const featuredEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/sensual-massage/201904/image-40393.jpg',
     isFeatured: true,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 7,
@@ -120,7 +120,7 @@ const featuredEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: true,
-    ethnic: 'Europe',
+    ethic: 'Europe',
   },
   {
     id: 8,
@@ -130,7 +130,7 @@ const featuredEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: true,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
 ];
 const normalEscorts = [
@@ -142,7 +142,7 @@ const normalEscorts = [
     age: 23,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 2,
@@ -152,7 +152,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201904/image-42261.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 3,
@@ -162,7 +162,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 4,
@@ -172,7 +172,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/wechat-escorts/201903/image-37466.jpeg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 5,
@@ -182,7 +182,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 6,
@@ -192,7 +192,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/sensual-massage/201904/image-40393.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 7,
@@ -202,7 +202,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Europe',
+    ethic: 'Europe',
   },
   {
     id: 8,
@@ -212,7 +212,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 11,
@@ -222,7 +222,7 @@ const normalEscorts = [
     age: 23,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 12,
@@ -232,7 +232,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201904/image-42261.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 13,
@@ -242,7 +242,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 14,
@@ -252,7 +252,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/wechat-escorts/201903/image-37466.jpeg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 15,
@@ -262,7 +262,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 16,
@@ -272,7 +272,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/sensual-massage/201904/image-40393.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 17,
@@ -282,7 +282,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Europe',
+    ethic: 'Europe',
   },
   {
     id: 18,
@@ -292,7 +292,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 21,
@@ -302,7 +302,7 @@ const normalEscorts = [
     age: 23,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 22,
@@ -312,7 +312,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201904/image-42261.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 23,
@@ -322,7 +322,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 24,
@@ -332,7 +332,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/wechat-escorts/201903/image-37466.jpeg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 25,
@@ -342,7 +342,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 26,
@@ -352,7 +352,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/sensual-massage/201904/image-40393.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
   {
     id: 27,
@@ -362,7 +362,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Europe',
+    ethic: 'Europe',
   },
   {
     id: 28,
@@ -372,7 +372,7 @@ const normalEscorts = [
     age: 18,
     image: 'https://www.myangelsescorts.com/upload/new-zealand/auckland/asian-escorts/201902/image-31140.jpg',
     isFeatured: false,
-    ethnic: 'Chinese',
+    ethic: 'Chinese',
   },
 ];
 
