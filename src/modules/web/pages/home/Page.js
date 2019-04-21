@@ -9,6 +9,7 @@ import Pagination from '@kevinwang0316/react-materialui-pagination';
 import Search from "../../../../common/search";
 import Categories from "../../../../common/categories";
 import ProfileCard from "../../../../common/profileCard";
+import {fade} from "@material-ui/core/styles/colorManipulator";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
       color: theme.palette.primary.contrastText,
-      marginTop: theme.spacing(15),
+      marginTop: '20vh',
     },
     subTitle: {
       color: theme.palette.primary.contrastText,
@@ -31,14 +32,13 @@ const useStyles = makeStyles(theme => ({
       alignItems: 'center',
       flexDirection: 'column',
     },
-    search: {
-      marginTop: theme.spacing(5),
-    },
     categories: {
-      marginTop: theme.spacing(4),
+      backgroundColor: fade(theme.palette.common.white, 0.15),
+      borderRadius: 3,
+      margin: theme.spacing(4),
     },
     container: {
-      marginTop: '-30vh',
+      marginTop: '-40vh',
     },
     paper:{
       padding: theme.spacing(3),
@@ -388,9 +388,7 @@ const Page = () => {
       <Typography className={classes.title} variant="h3" color="inherit" noWrap>
         Escort
       </Typography>
-      <div className={classes.search}>
-        <Search/>
-      </div>
+
       <div className={classes.categories}>
         <Categories/>
       </div>

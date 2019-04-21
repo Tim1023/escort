@@ -183,7 +183,7 @@ function ButtonAppBar({isAuthenticated}) {
       <AppBar position="fixed">
         <Toolbar>
           <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-            Escort
+            Logo
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
