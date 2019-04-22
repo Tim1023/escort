@@ -6,10 +6,18 @@ import LoadingComponent from '../../common/loader'
 
 const routes = [
   {
-    path: '/about',
+    path: '/',
     exact: true,
     component: Loadable({
-      loader: () => import('./pages/about'),
+      loader: () => import('./pages/list'),
+      loading: LoadingComponent,
+    }),
+  },
+  {
+    path: '/escorts/:slug',
+    exact: true,
+    component: Loadable({
+      loader: () => import('./pages/details'),
       loading: LoadingComponent,
     }),
   },

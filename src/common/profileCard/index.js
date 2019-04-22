@@ -6,11 +6,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from "@material-ui/styles";
 import PropTypes from 'prop-types';
+import Link from "@material-ui/core/Link/index";
 
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
     backgroundColor: theme.palette.primary.main,
+    display:'block',
   },
   content:{
     padding: theme.spacing(1),
@@ -22,6 +24,9 @@ const useStyles = makeStyles(theme => ({
   featured:{
     color: theme.palette.primary.contrastText,
     fontWeight: 'bold',
+  },
+  normal:{
+    color: 'white',
   },
   vip:{
     backgroundColor: '#e79627',
@@ -37,9 +42,12 @@ const useStyles = makeStyles(theme => ({
 
 function ImgMediaCard({escort}) {
   const classes = useStyles();
-  const {name, ethic, price, location, age, image, isFeatured} = escort;
+  const {id, name, ethic, price, location, age, image, isFeatured} = escort;
   return (
-    <Card className={classes.card}>
+    <Card
+      component={Link}
+      href={`/escorts/${id}`}
+      className={classes.card}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -49,23 +57,27 @@ function ImgMediaCard({escort}) {
           title="Contemplative Reptile"
         />
         <CardContent className={classes.content}>
-          <Typography gutterBottom variant="body1" component="h2" className={isFeatured ? classes.featured : null}>
+          <Typography
+            gutterBottom
+            variant="body1"
+            component="h2"
+            className={isFeatured ? classes.featured : classes.normal}>
             {isFeatured && <span className={classes.vip}>VIP</span>}
             {name}
           </Typography>
           <div className={classes.contentLine}>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body1" color="textSecondary" component="p">
               {ethic}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body1" color="textSecondary" component="p">
               ${price}
             </Typography>
           </div>
           <div className={classes.contentLine}>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body1" color="textSecondary" component="p">
               {location}
             </Typography>
-            <Typography variant="body2" component="p">
+            <Typography variant="body1" color="textPrimary" component="p">
               {age}yr
             </Typography>
           </div>

@@ -6,7 +6,6 @@ import Container from "@material-ui/core/Container";
 import Paper from '@material-ui/core/Paper';
 import Pagination from '@kevinwang0316/react-materialui-pagination';
 
-import Search from "../../../../common/search";
 import Categories from "../../../../common/categories";
 import ProfileCard from "../../../../common/profileCard";
 import {fade} from "@material-ui/core/styles/colorManipulator";
