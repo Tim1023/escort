@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
     textOverflow: 'unset',
+    color: theme.palette.primary.contrastText,
   },
   menuButton: {
     marginLeft: -12,
@@ -182,7 +183,12 @@ function ButtonAppBar({isAuthenticated}) {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+          <Typography
+            component={Link}
+            href='/'
+            className={classes.title}
+            variant="h6"
+            noWrap>
             Logo
           </Typography>
           <div className={classes.search}>
@@ -205,14 +211,6 @@ function ButtonAppBar({isAuthenticated}) {
             >
               Pricing
             </Link>
-            <IconButton
-              aria-owns={isProfileMenuOpen ? 'material-appbar' : undefined}
-              aria-haspopup="true"
-              onClick={handleLanguageMenuOpen}
-              color="inherit"
-            >
-              <LanguageIcon/>
-            </IconButton>
             {isAuthenticated
               ? <IconButton
                 aria-owns={isProfileMenuOpen ? 'material-appbar' : undefined}
@@ -238,6 +236,14 @@ function ButtonAppBar({isAuthenticated}) {
                 >
                   Login
                 </Link>
+                <IconButton
+                  aria-owns={isProfileMenuOpen ? 'material-appbar' : undefined}
+                  aria-haspopup="true"
+                  onClick={handleLanguageMenuOpen}
+                  color="inherit"
+                >
+                  <LanguageIcon/>
+                </IconButton>
               </React.Fragment>
             }
           </div>
