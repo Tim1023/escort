@@ -11,7 +11,7 @@ import Link from "@material-ui/core/Link/index";
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.dark,
     display:'block',
   },
   content:{
@@ -45,6 +45,7 @@ function ImgMediaCard({escort}) {
   const {id, name, ethic, price, location, age, image, isFeatured} = escort;
   return (
     <Card
+      underline='none'
       component={Link}
       href={`/escorts/${id}`}
       className={classes.card}>

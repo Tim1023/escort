@@ -21,9 +21,13 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   title: {
+    display: 'none',
     flexGrow: 1,
     textOverflow: 'unset',
     color: theme.palette.primary.contrastText,
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
   },
   menuButton: {
     marginLeft: -12,
@@ -37,9 +41,12 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
-
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
       width: 'auto',
+    },
   },
   searchIcon: {
     width: theme.spacing(9),
@@ -181,7 +188,7 @@ function ButtonAppBar({isAuthenticated}) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar color='default' position="fixed">
         <Toolbar>
           <Typography
             component={Link}
