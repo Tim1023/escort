@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, {useReducer} from "react";
 import PropTypes from 'prop-types'
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
 const FormContext = React.createContext();
 
 function reducer(state, action) {
+  console.log(state);
   switch (action.type) {
     case "UPDATE_PACKAGE":
       return {
@@ -14,12 +15,15 @@ function reducer(state, action) {
         package: action.payload,
       };
     case "UPDATE_CATEGORY":
-      return{
+      return {
         ...state,
         category: action.payload,
       };
     case "UPDATE_CONTENT":
-      return state;
+      return {
+        ...state,
+        ...action.payload,
+      };
     default:
       return state;
   }
@@ -28,7 +32,7 @@ function reducer(state, action) {
 const FormContextProvider = props => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <FormContext.Provider value={{ state, dispatch }}>
+    <FormContext.Provider value={{state, dispatch}}>
       {props.children}
     </FormContext.Provider>
   );
@@ -40,4 +44,4 @@ const propTypes = {
 
 FormContextProvider.propTypes = propTypes;
 
-export { reducer, FormContext, FormContextProvider };
+export {reducer, FormContext, FormContextProvider};

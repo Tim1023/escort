@@ -168,7 +168,6 @@ const escort = {
 }
 
 const detail = (e) => {
-  console.log(e);
   const classes = useStyles();
   return (
     <React.Fragment>
