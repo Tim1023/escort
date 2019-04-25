@@ -390,6 +390,7 @@ const detail = (e) => {
               >
                 {escort.images.map(item =>
                   <img
+                    alt='coverImage'
                     key={item}
                     className={classes.detailImage}
                     src={item}/>

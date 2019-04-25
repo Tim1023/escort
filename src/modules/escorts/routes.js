@@ -14,6 +14,14 @@ const routes = [
     }),
   },
   {
+    path: '/escorts/create',
+    exact: true,
+    component: Loadable({
+      loader: () => import('./pages/form'),
+      loading: LoadingComponent,
+    }),
+  },
+  {
     path: '/escorts/:slug',
     exact: true,
     component: Loadable({
