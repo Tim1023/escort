@@ -13,6 +13,14 @@ const routes = [
       loading: LoadingComponent,
     }),
   },
+  {
+    path: '/pricing',
+    exact: true,
+    component: Loadable({
+      loader: () => import('./pages/pricing'),
+      loading: LoadingComponent,
+    }),
+  },
 ]
 
 export default routes
