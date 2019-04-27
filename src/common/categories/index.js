@@ -1,6 +1,6 @@
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
-import Link from "@material-ui/core/Link";
+import {Link} from "react-router-dom";
 import {makeStyles} from '@material-ui/core/styles';
 
 const sections = [
@@ -25,6 +25,8 @@ const useStyles = makeStyles(theme => ({
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
+    color: theme.palette.primary.main,
+    textDecoration: 'none',
   },
 }));
 
@@ -34,10 +36,8 @@ const Categories = () => {
     <Toolbar component="nav" className={classes.toolbarSecondary}>
       {sections.map(section => (
         <Link
-          color="inherit"
-          noWrap
           key={section}
-          href="#"
+          to="#"
           className={classes.toolbarLink}
         >
           {section}

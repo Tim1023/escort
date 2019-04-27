@@ -6,13 +6,15 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from "@material-ui/styles";
 import PropTypes from 'prop-types';
-import Link from "@material-ui/core/Link/index";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
+    color: 'white',
     backgroundColor: theme.palette.primary.dark,
     display:'block',
+    textDecoration: 'none',
   },
   content:{
     padding: theme.spacing(1),
@@ -45,9 +47,8 @@ function ImgMediaCard({escort}) {
   const {id, name, ethic, price, location, age, image, isFeatured} = escort;
   return (
     <Card
-      underline='none'
       component={Link}
-      href={`/escorts/${id}`}
+      to={`/escorts/${id}`}
       className={classes.card}>
       <CardActionArea>
         <CardMedia

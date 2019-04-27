@@ -12,9 +12,8 @@ import {fade} from '@material-ui/core/styles/colorManipulator';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Link from '@material-ui/core/Link';
 import LanguageIcon from '@material-ui/icons/Language';
-
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,6 +27,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    textDecoration: 'none',
   },
   menuButton: {
     marginLeft: -12,
@@ -88,6 +88,8 @@ const useStyles = makeStyles(theme => ({
   link: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
+    color: theme.palette.primary.contrastText,
+    textDecoration: 'none',
   }
 }));
 
@@ -156,7 +158,7 @@ function ButtonAppBar({isAuthenticated}) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem component={Link} href="/pricing">
+      <MenuItem component={Link} to="/pricing">
         Pricing
       </MenuItem>
       <MenuItem onClick={handleLanguageMenuOpen}>
@@ -170,17 +172,17 @@ function ButtonAppBar({isAuthenticated}) {
           <p>Account</p>
         </MenuItem>
         :
-        <React.Fragment>
+        <div>
 
-          <MenuItem component={Link} href="/register">
+          <MenuItem component={Link} to="/register">
 
             Sign Up
           </MenuItem>
-          <MenuItem component={Link} href="/login">
+          <MenuItem component={Link} to="/login">
 
             Login
           </MenuItem>
-        </React.Fragment>
+        </div>
       }
 
     </Menu>
@@ -192,7 +194,7 @@ function ButtonAppBar({isAuthenticated}) {
         <Toolbar>
           <Typography
             component={Link}
-            href='/'
+            to='/'
             className={classes.title}
             variant="h6"
             noWrap>
@@ -212,7 +214,7 @@ function ButtonAppBar({isAuthenticated}) {
           </div>
           <div className={classes.sectionDesktop}>
             <Link
-              href='/pricing'
+              to='/pricing'
               color="inherit"
               className={classes.link}
             >
@@ -230,14 +232,14 @@ function ButtonAppBar({isAuthenticated}) {
               :
               <React.Fragment>
                 <Link
-                  href='/register'
+                  to='/register'
                   color="inherit"
                   className={classes.link}
                 >
                   Sign Up
                 </Link>
                 <Link
-                  href='/login'
+                  to='/login'
                   color="inherit"
                   className={classes.link}
                 >

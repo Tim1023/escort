@@ -4,14 +4,14 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Paper from "@material-ui/core/Paper";
 
+import {FormContext} from "./reducer";
 import Packages from "./components/packages";
 import Categories from "./components/categories";
 import Content from "./components/content";
-import {FormContext} from "./reducer";
+import Checkout from "./components/checkout";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,10 +48,6 @@ function Form() {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   }
 
-  function handleReset() {
-    setActiveStep(0);
-  }
-
   function handleChange({type, payload}) {
     switch (type) {
       case 'package':
@@ -84,15 +80,10 @@ function Form() {
       </Stepper>
       <div>
         {activeStep === steps.length ? (
-          <div>
-            <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Button onClick={handleReset} className={classes.button}>
-              Reset
-            </Button>
-          </div>
-        ) : (
+          <Paper className={classes.instructions}>
+            <Checkout/>
+          </Paper>
+          ) : (
           <div>
             <div className={activeStep !== 0 ? classes.hide : ''}>
               <Paper className={classes.instructions}>

@@ -7,32 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/Select';
 
-const data = [
-  {
-    id: 1,
-    name: 'Non Asian Escorts',
-  },
-  {
-    id: 2,
-    name: 'Asian Escorts'
-  },
-  {
-    id: 3,
-    name: 'Two Girl Fantasy'
-  },
-  {
-    id: 4,
-    name: 'BDSM Services'
-  },
-  {
-    id: 5,
-    name: 'Sensual Message'
-  },
-  {
-    id: 6,
-    name: 'Clubs/Agencies'
-  },
-];
+import {categories} from "./options";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -77,7 +52,7 @@ function Categories(props) {
         input={<Input name="Category" id="category-label-placeholder"/>}
         name='Category'
       >
-        {data.map(value =>
+        {categories.map(value =>
           <MenuItem
             key={value.id}
             value={value.id}>
