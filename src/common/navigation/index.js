@@ -90,6 +90,9 @@ const useStyles = makeStyles(theme => ({
     paddingRight: theme.spacing(2),
     color: theme.palette.primary.contrastText,
     textDecoration: 'none',
+    '&:hover':{
+      textDecoration: 'underline',
+    }
   }
 }));
 

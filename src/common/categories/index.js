@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
     flexShrink: 0,
     color: theme.palette.primary.main,
     textDecoration: 'none',
+    '&:hover':{
+      textDecoration: 'underline',
+    }
   },
 }));
 

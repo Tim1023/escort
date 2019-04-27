@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 
 // import components
 import Navigation from '../common/navigation'
-// import ScrollTop from '../common/scroll-top'
-// import Footer from '../common/footer'
+import Footer from '../common/footer'
 
 const displayName = 'Private Layout'
 const propTypes = {
@@ -17,9 +16,8 @@ function PrivateLayout({ children }) {
     <Navigation isAuthenticated={true} />
     <main style={{ minHeight: '100vh'}}>
       { children }
-      {/*<ScrollTop />*/}
     </main>
-    {/*<Footer/>*/}
+    <Footer/>
   </div>
 }
 
