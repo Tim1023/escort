@@ -21,6 +21,7 @@ import {
   northlandSuburbs, nzCities, southIslandSuburbs,
   taurangaSuburbs, wellingtonSuburbs
 } from "./options";
+import {DropzoneArea} from "material-ui-dropzone";
 
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +40,13 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginRight: theme.spacing(10),
     width: 200,
+  },
+  uploader:{
+    margin: theme.spacing(3,0),
+    color: 'grey',
+  },
+  coverImageLabel:{
+    marginTop: theme.spacing(3),
   },
 }));
 
@@ -88,6 +96,14 @@ function Content(props) {
       default:
         return [];
     }
+  };
+
+  const uploadImages = (e) =>{
+    console.log(e);
+  };
+
+  const uploadCoverImage = (e) =>{
+    console.log(e)
   };
 
   return (
@@ -230,6 +246,39 @@ function Content(props) {
             value={values.suburb}
             options={getSuburbs()}
             handleChange={handleChange('suburb')}
+          />
+        </form>
+      </Paper>
+      <Paper className={classes.paper}>
+
+        <FormLabel component="legend">Description & Media</FormLabel>
+        <form className={classes.container}>
+          <TextField
+            id="outlined-textarea"
+            label="Description"
+            multiline
+            rows="8"
+            fullWidth
+            margin="normal"
+          />
+          <FormLabel
+            className={classes.coverImageLabel}
+            component="legend">
+            Cover Image
+          </FormLabel>
+
+          <DropzoneArea
+            max={1}
+            acceptedFiles={['image/*']}
+            dropZoneClass={classes.uploader}
+            onChange={uploadCoverImage}
+          />
+          <FormLabel component="legend">Detail Images</FormLabel>
+          <DropzoneArea
+            max={9}
+            acceptedFiles={['image/*']}
+            dropZoneClass={classes.uploader}
+            onChange={uploadImages}
           />
         </form>
       </Paper>
