@@ -12,13 +12,13 @@ import {
   escortBasicFields,
   escortRatesFields,
   workingHoursFields,
-  contactFields, locationFields,
+  contactFields,
 } from "./fields";
 import {
   aucklandSuburbs,
-  centralNorthIslandSuburbs, christchurchSuburbs,
+  centralNorthIslandSuburbs, christchurchSuburbs, countries,
   hamiltonSuburbs,
-  northlandSuburbs, southIslandSuburbs,
+  northlandSuburbs, nzCities, southIslandSuburbs,
   taurangaSuburbs, wellingtonSuburbs
 } from "./options";
 
@@ -51,6 +51,20 @@ function Content(props) {
     const value = Array.isArray(event) ? event : event.target.value;
     setValues({...values, [name]: value});
     props.handleChange({type: 'content', payload: {[name]: value}});
+  };
+
+  const handleCountryChange = name => event => {
+    const value = event.target.value;
+    setValues({...values, [name]: value, city:''});
+    props.handleChange({type: 'content', payload: {[name]: value}});
+    props.handleChange({type: 'content', payload: {city: ''}});
+  };
+  const handleCityChange = name => event => {
+    const value = event.target.value;
+    setValues({...values, [name]: value, suburb:''});
+    props.handleChange({type: 'content', payload: {[name]: value}});
+    props.handleChange({type: 'content', payload: {suburb: ''}});
+
   };
 
   const getSuburbs = () => {
@@ -196,17 +210,20 @@ function Content(props) {
 
         <FormLabel component="legend">Location</FormLabel>
         <form className={classes.container}>
-
-          {locationFields.map(item =>
-            <Selects
-              required={item.required}
-              key={item.value}
-              label={item.label}
-              value={values[item.value]}
-              options={item.options}
-              handleChange={handleChange(item.value)}
-            />
-          )}
+          <Selects
+            required
+            label='Country'
+            value={values.country}
+            options={countries}
+            handleChange={handleCountryChange('country')}
+          />
+          <Selects
+            required
+            label='City'
+            value={values.city}
+            options={nzCities}
+            handleChange={handleCityChange('city')}
+          />
           <Selects
             required
             label='Suburb'

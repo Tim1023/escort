@@ -11,8 +11,7 @@ import {
   parkingTypes,
   orientations,
   timeOptions,
-  countries,
-  nzSuburbs, contactPreferenceTypes, nzCities,
+  contactPreferenceTypes,
 } from "./options";
 
 const escortBasicFields = [
@@ -208,21 +207,6 @@ const contactFields = [
   }
 ];
 
-const locationFields = [
-  {
-    value: 'country',
-    label: 'Country',
-    required: true,
-    options: countries,
-  },
-  {
-    value: 'city',
-    label: 'City',
-    required: true,
-    options: nzCities,
-  },
-]
-
 const fields = {
   // Basic
   name: '',
@@ -282,5 +266,4 @@ export {
   escortRatesFields,
   workingHoursFields,
   contactFields,
-  locationFields,
 }
