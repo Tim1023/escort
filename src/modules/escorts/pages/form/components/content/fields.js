@@ -12,7 +12,7 @@ import {
   orientations,
   timeOptions,
   countries,
-  nzSuburbs,
+  nzSuburbs, contactPreferenceTypes, nzCities,
 } from "./options";
 
 const escortBasicFields = [
@@ -191,6 +191,38 @@ const workingHoursFields = [
   },
 ];
 
+const contactFields = [
+  {
+    value: 'phone',
+    label: 'Phone',
+    required: true,
+  },
+  {
+    value: 'email',
+    label: 'Email',
+  },
+  {
+    value: 'contactPreference',
+    label: 'Contact Preference',
+    options: contactPreferenceTypes
+  }
+];
+
+const locationFields = [
+  {
+    value: 'country',
+    label: 'Country',
+    required: true,
+    options: countries,
+  },
+  {
+    value: 'city',
+    label: 'City',
+    required: true,
+    options: nzCities,
+  },
+]
+
 const fields = {
   // Basic
   name: '',
@@ -249,4 +281,6 @@ export {
   escortBasicFields,
   escortRatesFields,
   workingHoursFields,
+  contactFields,
+  locationFields,
 }

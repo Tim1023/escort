@@ -7,7 +7,20 @@ import FormLabel from "@material-ui/core/FormLabel";
 
 import Selects from "./selects";
 import ExtraServices from "../extraServices";
-import {fields, escortBasicFields, escortRatesFields, workingHoursFields} from "./fields";
+import {
+  fields,
+  escortBasicFields,
+  escortRatesFields,
+  workingHoursFields,
+  contactFields, locationFields,
+} from "./fields";
+import {
+  aucklandSuburbs,
+  centralNorthIslandSuburbs, christchurchSuburbs,
+  hamiltonSuburbs,
+  northlandSuburbs, southIslandSuburbs,
+  taurangaSuburbs, wellingtonSuburbs
+} from "./options";
 
 
 const useStyles = makeStyles(theme => ({
@@ -40,29 +53,29 @@ function Content(props) {
     props.handleChange({type: 'content', payload: {[name]: value}});
   };
 
-
-  const BlockPaper = ({name, fields}) => {
-    return <Paper className={classes.paper}>
-      <FormLabel component="legend">{name}</FormLabel>
-      <form className={classes.container}>
-
-        {fields.map(item =>
-          <Selects
-            required={item.required}
-            key={item.value}
-            label={item.label}
-            value={values[item.value]}
-            options={item.options}
-            handleChange={handleChange(item.value)}
-          />
-        )}
-      </form>
-    </Paper>;
-  }
-  BlockPaper.propTypes = {
-    name: PropTypes.string.isRequired,
-    fields: PropTypes.array.isRequired,
+  const getSuburbs = () => {
+    switch (values.city) {
+      case 'Auckland':
+        return aucklandSuburbs;
+      case 'Northland':
+        return northlandSuburbs;
+      case 'Hamilton':
+        return hamiltonSuburbs;
+      case 'Central North Island':
+        return centralNorthIslandSuburbs;
+      case 'Tauranga':
+        return taurangaSuburbs;
+      case 'Wellington':
+        return wellingtonSuburbs;
+      case 'Christchurch':
+        return christchurchSuburbs;
+      case 'South Island':
+        return southIslandSuburbs;
+      default:
+        return [];
+    }
   };
+
   return (
     <div className={classes.root}>
 
@@ -136,10 +149,73 @@ function Content(props) {
           />
         </form>
       </Paper>
-      <BlockPaper
-        name='Working Hours'
-        fields={workingHoursFields}
-      />
+      <Paper className={classes.paper}>
+
+        <FormLabel component="legend">Working Hours</FormLabel>
+        <form className={classes.container}>
+
+          {workingHoursFields.map(item =>
+            <Selects
+              required={item.required}
+              key={item.value}
+              label={item.label}
+              value={values[item.value]}
+              options={item.options}
+              handleChange={handleChange(item.value)}
+            />
+          )}
+        </form>
+      </Paper>
+      <Paper className={classes.paper}>
+
+        <FormLabel component="legend">Contact</FormLabel>
+        <form className={classes.container}>
+          {contactFields.map(item =>
+            !item.options
+              ? <TextField
+                required={item.required}
+                key={item.value}
+                label={item.label}
+                className={classes.textField}
+                value={values[item.value]}
+                onChange={handleChange(item.value)}
+                margin="normal"
+              />
+              : <Selects
+                required={item.required}
+                key={item.value}
+                label={item.label}
+                value={values[item.value]}
+                options={item.options}
+                handleChange={handleChange(item.value)}
+              />
+          )}
+        </form>
+      </Paper>
+      <Paper className={classes.paper}>
+
+        <FormLabel component="legend">Location</FormLabel>
+        <form className={classes.container}>
+
+          {locationFields.map(item =>
+            <Selects
+              required={item.required}
+              key={item.value}
+              label={item.label}
+              value={values[item.value]}
+              options={item.options}
+              handleChange={handleChange(item.value)}
+            />
+          )}
+          <Selects
+            required
+            label='Suburb'
+            value={values.suburb}
+            options={getSuburbs()}
+            handleChange={handleChange('suburb')}
+          />
+        </form>
+      </Paper>
     </div>
 
   );
