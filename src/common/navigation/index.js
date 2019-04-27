@@ -174,7 +174,7 @@ function ButtonAppBar({isAuthenticated}) {
         :
         <div>
 
-          <MenuItem component={Link} to="/register">
+          <MenuItem component={Link} to="/signUp">
 
             Sign Up
           </MenuItem>
@@ -232,7 +232,7 @@ function ButtonAppBar({isAuthenticated}) {
               :
               <React.Fragment>
                 <Link
-                  to='/register'
+                  to='/signUp'
                   color="inherit"
                   className={classes.link}
                 >
