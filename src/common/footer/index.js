@@ -51,7 +51,7 @@ function StickyFooter() {
                     className={classes.link}
                     component={Link}
                     key={item}
-                    href="#"
+                    to="#"
                     variant="subtitle1"
                     color="textSecondary">
                     {item}

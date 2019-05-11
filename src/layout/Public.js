@@ -12,13 +12,13 @@ const propTypes = {
 }
 
 const PublicLayout = ({ children })=> {
-  return <div>
+  return <React.fragement>
     <Navigation isAuthenticated={false}/>
     <main style={{ minHeight: '100vh'}}>
       { children }
     </main>
     <Footer/>
-  </div>
+  </React.fragement>
 }
 
 PublicLayout.displayName = displayName

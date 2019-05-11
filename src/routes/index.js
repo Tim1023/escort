@@ -10,12 +10,15 @@ import PrivateRoute from './Private'
 import PublicRoute from './Public'
 
 import Layout from '../layout'
+import {Store} from "../store";
 
 const history = createBrowserHistory()
 
-const Routes = () => (
-  <Router hisotry={history}>
-    <Layout isAuthenticated={false} >
+const Routes = () => {
+  const { state:{user} } = React.useContext(Store);
+
+  return (<Router hisotry={history}>
+    <Layout isAuthenticated={!!user}>
       <Switch>
         {routes.map((route, i) => {
           if (route.auth) {
@@ -25,7 +28,7 @@ const Routes = () => (
         })}
       </Switch>
     </Layout>
-  </Router>
-)
+  </Router>)
+}
 
 export default Routes
