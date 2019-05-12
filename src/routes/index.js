@@ -16,9 +16,9 @@ const history = createBrowserHistory()
 
 const Routes = () => {
   const { state:{user} } = React.useContext(Store);
-
+  const isAuthenticated = !!user.username;
   return (<Router hisotry={history}>
-    <Layout isAuthenticated={!!user}>
+    <Layout isAuthenticated={isAuthenticated}>
       <Switch>
         {routes.map((route, i) => {
           if (route.auth) {

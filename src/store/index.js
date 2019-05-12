@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-export const Store = React.createContext();
+const Store = React.createContext();
 
 const initialState = {
   user: {},
@@ -30,5 +30,6 @@ StoreProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 export {
+  Store,
   StoreProvider,
 }

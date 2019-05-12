@@ -11,6 +11,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom";
+import {login} from "../../../../store/Action";
+import {Store} from "../../../../store";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,8 +51,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignInSide() {
+  const { state, dispatch } = React.useContext(Store);
   const classes = useStyles();
-
+  const [values, setValues] = React.useState({
+    username: '',
+    password: '',
+  });
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
+  const handleSubmit = ()=>{
+    login(values, dispatch)
+  }
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -69,11 +81,12 @@ export default function SignInSide() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
+              id="username"
+              label="User name"
+              name="username"
+              autoComplete="username"
+              value={values.username}
+              onChange={handleChange('username')}
             />
             <TextField
               variant="outlined"
@@ -85,16 +98,16 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={values.password}
+              onChange={handleChange('password')}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+
             <Button
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={handleSubmit}
             >
               Sign In
             </Button>
