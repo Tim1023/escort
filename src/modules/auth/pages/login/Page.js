@@ -3,16 +3,19 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import {Link} from "react-router-dom";
-import {login} from "../../../../store/Action";
+import {Link, withRouter} from "react-router-dom";
+import PropTypes from 'prop-types'
+
+import {login, updateUser} from "../../../../store/Action";
 import {Store} from "../../../../store";
+import {fetchUser} from "../../../../api/user";
+import {fetchToken} from "../../../../api/auth";
+import {getToken, getUser} from "../services";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,8 +53,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignInSide() {
-  const { state, dispatch } = React.useContext(Store);
+function SignInSide(props) {
+  const { dispatch } = React.useContext(Store);
   const classes = useStyles();
   const [values, setValues] = React.useState({
     username: '',
@@ -60,9 +63,17 @@ export default function SignInSide() {
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
-  const handleSubmit = ()=>{
-    login(values, dispatch)
-  }
+
+  const returnHome = ()=>{
+    props.history.replace('/')
+  };
+
+  const handleSubmit = async()=>{
+    await getToken(values,dispatch);
+    returnHome();
+    await getUser(dispatch);
+  };
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -139,3 +150,11 @@ export default function SignInSide() {
     </Grid>
   );
 }
+
+const propTypes = {
+  history: PropTypes.object,
+};
+
+SignInSide.propTypes=propTypes;
+
+export default withRouter(SignInSide);

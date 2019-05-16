@@ -1,16 +1,40 @@
-import {fetchToken} from "../api/auth";
 import HTTP from '../utils/Http';
-import {fetchUser} from "../api/user";
 
-const login = async (payload,dispatch) => {
-  const {tokenType, accessToken} = await fetchToken(payload);
-  const tokenHeader = tokenType + accessToken;
-  localStorage.setItem('access_token', tokenHeader);
-  HTTP.defaults.headers.common['Authorization'] = tokenHeader;
-  const data = await fetchUser();
-  console.log(data);
+const login = (payload,dispatch) => {
+  localStorage.setItem('access_token', payload);
+  HTTP.defaults.headers.common['Authorization'] = payload;
+  return dispatch({
+    type: "AUTH_LOGIN",
+  });
 };
+const logout = (dispatch) => {
+  localStorage.removeItem('access_token');
+  delete HTTP.defaults.headers.common['Authorization'];
+  return dispatch({
+    type: "AUTH_LOGOUT",
+  });
+};
+const authCheck = (dispatch) => {
+  const isAuthenticated = !!localStorage.getItem('access_token');
+  if (isAuthenticated) {
+    HTTP.defaults.headers.common['Authorization'] = `${localStorage.getItem('access_token')}`;
+  }
+  return dispatch({
+    type: "AUTH_CHECK",
+    payload: isAuthenticated,
+  });
+};
+
+const updateUser = (payload, dispatch,) => {
+  return dispatch({
+    type: "USER_UPDATE",
+    payload: payload,
+  });
+}
 
 export {
   login,
+  updateUser,
+  authCheck,
+  logout,
 }

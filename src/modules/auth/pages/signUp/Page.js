@@ -9,10 +9,16 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from "@material-ui/core/es/Paper/Paper";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
+import PropTypes from 'prop-types'
+
+import {login, updateUser} from "../../../../store/Action";
+import {signUp} from "../../../../api/auth";
+import {Store} from "../../../../store";
+import {fetchUser} from "../../../../api/user";
+import {getToken, getUser} from "../services";
 
 const useStyles = makeStyles(theme => ({
-
   paper: {
     marginTop: theme.spacing(12),
     padding: theme.spacing(4),
@@ -40,9 +46,25 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
+function SignUp(props) {
+  const { dispatch } = React.useContext(Store);
   const classes = useStyles();
+  const [values, setValues] = React.useState({
+    username: '',
+    email:'',
+    password: '',
+  });
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
+  const handleSubmit = async()=>{
+    await signUp(values)
+    const {username,password} = values;
+    await getToken({username, password}, dispatch);
+    await getUser(dispatch);
+    props.history.replace('/')
 
+  };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -64,6 +86,7 @@ export default function SignIn() {
                 fullWidth
                 id="userName"
                 label="User Name"
+                onChange={handleChange('username')}
               />
             </Grid>
             <Grid item xs={12}>
@@ -75,6 +98,7 @@ export default function SignIn() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={handleChange('email')}
               />
             </Grid>
             <Grid item xs={12}>
@@ -87,6 +111,7 @@ export default function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleChange('password')}
               />
             </Grid>
           </Grid>
@@ -95,6 +120,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleSubmit}
           >
             Sign Up
           </Button>
@@ -110,3 +136,11 @@ export default function SignIn() {
     </Container>
   );
 }
+
+const propTypes = {
+  history: PropTypes.object,
+};
+
+SignUp.propTypes=propTypes;
+
+export default withRouter(SignUp);

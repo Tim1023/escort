@@ -5,6 +5,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Routes from './routes'
 import theme from './theme';
 import AdultModal from "./common/adultModal";
+import {Store} from "./store";
+import {authCheck} from "./store/Action";
 
 const App = ()=> {
   const isEntryModalShowedToday = ()=>{
@@ -18,6 +20,12 @@ const App = ()=> {
     }
     return false
   };
+  const { state,dispatch } = React.useContext(Store);
+
+  React.useEffect(()=>{
+    authCheck(dispatch);
+  },[])
+  const {isAuthenticated} = state;
   return <ThemeProvider theme={theme}>
     <CssBaseline/>
     {
@@ -25,7 +33,7 @@ const App = ()=> {
         <AdultModal/>
       )
     }
-    <Routes/>
+    <Routes isAuthenticated={isAuthenticated}/>
   </ThemeProvider>;
 }
 

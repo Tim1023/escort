@@ -14,6 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import LanguageIcon from '@material-ui/icons/Language';
 import {Link} from 'react-router-dom';
+import {logout} from "../../store/Action";
+import {Store} from "../../store";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -98,6 +100,8 @@ const useStyles = makeStyles(theme => ({
 
 
 function ButtonAppBar({isAuthenticated}) {
+  const { dispatch } = React.useContext(Store);
+
   const classes = useStyles();
   const [profileAnchorEl, setProfileAnchorEl] = React.useState(null);
   const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
@@ -129,6 +133,11 @@ function ButtonAppBar({isAuthenticated}) {
     setMobileMoreAnchorEl(event.currentTarget);
   }
 
+  function handleLogOut() {
+    logout(dispatch);
+    handleMenuClose();
+  }
+
   const accountMenu = (
     <Menu
       anchorEl={profileAnchorEl}
@@ -138,7 +147,7 @@ function ButtonAppBar({isAuthenticated}) {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Log out</MenuItem>
+      <MenuItem onClick={handleLogOut}>Log out</MenuItem>
     </Menu>
   );
   const languageMenu = (

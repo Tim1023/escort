@@ -8,4 +8,3 @@ const BASE_URL = '/users';
 export function fetchUser() {
   return Http.get(`${BASE_URL}/me`);
 }
-
