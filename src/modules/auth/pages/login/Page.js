@@ -11,11 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Link, withRouter} from "react-router-dom";
 import PropTypes from 'prop-types'
 
-import {login, updateUser} from "../../../../store/Action";
 import {Store} from "../../../../store";
-import {fetchUser} from "../../../../api/user";
-import {fetchToken} from "../../../../api/auth";
-import {getToken, getUser} from "../services";
+import {getToken, getUser} from "../../services";
 
 const useStyles = makeStyles(theme => ({
   root: {

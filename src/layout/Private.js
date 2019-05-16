@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 // import components
 import Navigation from '../common/navigation'
 import Footer from '../common/footer'
-import {fetchUser} from "../api/user";
 import {Store} from "../store";
+import {getUser} from "../modules/auth/services";
 
 const displayName = 'Private Layout'
 const propTypes = {
@@ -17,9 +17,13 @@ function PrivateLayout({ children }) {
   const { state,dispatch } = React.useContext(Store);
 
   React.useEffect(()=>{
-    if(state.isAuthenticated && !state.user.id){
-      fetchUser(dispatch);
+    async function runGetUser() {
+      if(state.isAuthenticated && !state.user.id){
+        await getUser(dispatch);
+      }
     }
+    runGetUser();
+
   },[])
   return <div>
     <Navigation isAuthenticated={true} />

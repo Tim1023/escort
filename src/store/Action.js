@@ -1,20 +1,20 @@
 import HTTP from '../utils/Http';
 
-const login = (payload,dispatch) => {
+const loginAction = (payload,dispatch) => {
   localStorage.setItem('access_token', payload);
   HTTP.defaults.headers.common['Authorization'] = payload;
   return dispatch({
     type: "AUTH_LOGIN",
   });
 };
-const logout = (dispatch) => {
+const logoutAction = (dispatch) => {
   localStorage.removeItem('access_token');
   delete HTTP.defaults.headers.common['Authorization'];
   return dispatch({
     type: "AUTH_LOGOUT",
   });
 };
-const authCheck = (dispatch) => {
+const authCheckAction = (dispatch) => {
   const isAuthenticated = !!localStorage.getItem('access_token');
   if (isAuthenticated) {
     HTTP.defaults.headers.common['Authorization'] = `${localStorage.getItem('access_token')}`;
@@ -25,16 +25,16 @@ const authCheck = (dispatch) => {
   });
 };
 
-const updateUser = (payload, dispatch,) => {
+const fetchUserAction = (payload, dispatch,) => {
   return dispatch({
-    type: "USER_UPDATE",
+    type: "USER_FETCH",
     payload: payload,
   });
 }
 
 export {
-  login,
-  updateUser,
-  authCheck,
-  logout,
+  loginAction,
+  fetchUserAction,
+  authCheckAction,
+  logoutAction,
 }

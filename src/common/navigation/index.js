@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import LanguageIcon from '@material-ui/icons/Language';
 import {Link} from 'react-router-dom';
-import {logout} from "../../store/Action";
+import {logoutAction} from "../../store/Action";
 import {Store} from "../../store";
 
 const useStyles = makeStyles(theme => ({
@@ -134,7 +134,7 @@ function ButtonAppBar({isAuthenticated}) {
   }
 
   function handleLogOut() {
-    logout(dispatch);
+    logoutAction(dispatch);
     handleMenuClose();
   }
 

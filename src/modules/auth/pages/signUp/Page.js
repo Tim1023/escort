@@ -12,11 +12,9 @@ import Paper from "@material-ui/core/es/Paper/Paper";
 import {Link, withRouter} from "react-router-dom";
 import PropTypes from 'prop-types'
 
-import {login, updateUser} from "../../../../store/Action";
 import {signUp} from "../../../../api/auth";
 import {Store} from "../../../../store";
-import {fetchUser} from "../../../../api/user";
-import {getToken, getUser} from "../services";
+import {getToken, getUser} from "../../services";
 
 const useStyles = makeStyles(theme => ({
   paper: {

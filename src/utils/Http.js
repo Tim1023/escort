@@ -2,7 +2,7 @@
 import axios from 'axios'
 import {Store} from '../store'
 import React from "react";
-import {logout} from "../store/Action";
+import {logoutAction} from "../store/Action";
 
 
 
@@ -19,7 +19,7 @@ axios.interceptors.response.use(
     if (error.response.status === 401) {
       const runLogout = ()=>{
         const { dispatch } = React.useContext(Store);
-        logout(dispatch);
+        logoutAction(dispatch);
       }
       runLogout();
     }

@@ -16,7 +16,7 @@ function reducer(state, action) {
       return {...state, isAuthenticated: true};
     case "AUTH_LOGOUT":
       return {...state, isAuthenticated: false};
-    case "USER_UPDATE":
+    case "USER_FETCH":
       return { ...state, user: action.payload };
     default:
       return state;

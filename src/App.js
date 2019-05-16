@@ -6,7 +6,7 @@ import Routes from './routes'
 import theme from './theme';
 import AdultModal from "./common/adultModal";
 import {Store} from "./store";
-import {authCheck} from "./store/Action";
+import {authCheckAction} from "./store/Action";
 
 const App = ()=> {
   const isEntryModalShowedToday = ()=>{
@@ -23,7 +23,7 @@ const App = ()=> {
   const { state,dispatch } = React.useContext(Store);
 
   React.useEffect(()=>{
-    authCheck(dispatch);
+    authCheckAction(dispatch);
   },[])
   const {isAuthenticated} = state;
   return <ThemeProvider theme={theme}>

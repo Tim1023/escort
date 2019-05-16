@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Container from "@material-ui/core/es/Container/Container";
+import Ads from "./Ads";
+import Favorites from "./Favorites";
+import Info from "./Info";
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography component="div" style={{padding: 8 * 3}}>
       {props.children}
     </Typography>
   );
@@ -44,15 +47,29 @@ function NavTabs() {
       <div className={classes.root}>
         <AppBar position="static">
           <Tabs variant="fullWidth" value={value} onChange={handleChange}>
-            <LinkTab label="MY ADS" href="ads" />
-            <LinkTab label="MY POINTS" href="points" />
-            <LinkTab label="MY FAVORITES" href="favorites" />
-            <LinkTab label="MY PROFILE" href="info" />
+            <LinkTab label="MY ADS" href="ads"/>
+            <LinkTab label="MY FAVORITES" href="favorites"/>
+            <LinkTab label="MY PROFILE" href="info"/>
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer>Page One</TabContainer>}
-        {value === 1 && <TabContainer>Page Two</TabContainer>}
-        {value === 2 && <TabContainer>Page Three</TabContainer>}
+        {
+          value === 0 &&
+          <TabContainer>
+            <Ads/>
+          </TabContainer>
+        }
+        {
+          value === 1 &&
+          <TabContainer>
+            <Favorites/>
+          </TabContainer>
+        }
+        {
+          value === 2 &&
+          <TabContainer>
+            <Info/>
+          </TabContainer>
+        }
       </div>
     </Container>
   );
