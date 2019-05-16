@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/es/Grid/Grid";
 import {makeStyles} from "@material-ui/core/styles/index";
 import Button from "@material-ui/core/es/Button/Button";
 import UserDialog from "./UserDialog";
+import PasswordDialog from "./PasswordDialog";
 
 const useStyles = makeStyles(theme => ({
   paper:{
@@ -29,10 +30,16 @@ function Info() {
 
   const {state: {user: {id, email, username, point}}, dispatch} = React.useContext(Store);
 
-  const [open, setOpen] = React.useState(false);
+  const [userOpen, setUserOpen] = React.useState(false);
 
-  function toggleOpen() {
-    setOpen(!open);
+  function toggleUserOpen() {
+    setUserOpen(!userOpen);
+  }
+
+  const [passwordOpen, setPasswordOpen] = React.useState(false);
+
+  function togglePasswordOpen() {
+    setPasswordOpen(!passwordOpen);
   }
 
   return (
@@ -67,12 +74,13 @@ function Info() {
             justify='space-between'
           >
             <Button
-              onClick={toggleOpen}
+              onClick={toggleUserOpen}
               variant="contained"
             >
               Edit profile
             </Button>
             <Button
+              onClick={togglePasswordOpen}
               variant="contained"
             >
               Change Password
@@ -81,8 +89,12 @@ function Info() {
         </Paper>
       </Grid>
       <UserDialog
-        open={open}
-        handleToggle={toggleOpen}
+        open={userOpen}
+        handleToggle={toggleUserOpen}
+      />
+      <PasswordDialog
+        open={passwordOpen}
+        handleToggle={togglePasswordOpen}
       />
     </Grid>
 
