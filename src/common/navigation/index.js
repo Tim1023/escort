@@ -146,8 +146,16 @@ function ButtonAppBar({isAuthenticated}) {
       open={isProfileMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleLogOut}>Log out</MenuItem>
+      <MenuItem
+        onClick={handleMenuClose}
+        component={Link}
+        to='/profile'
+      >
+        Profile
+      </MenuItem>
+      <MenuItem onClick={handleLogOut}>
+        Log out
+      </MenuItem>
     </Menu>
   );
   const languageMenu = (
