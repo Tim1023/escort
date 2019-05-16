@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   footer: {
-    marginTop: 'auto',
+    borderTop: '1px solid white',
+    marginTop: theme.spacing(3),
     padding: theme.spacing(3, 0),
   },
 }));
